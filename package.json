@@ -1,0 +1,71 @@
+{
+  "name": "@digitalbazaar/vc-bitstring-status-list-context",
+  "version": "0.0.1-0",
+  "description": "Verifiable Credentials Bitstring Status List Context.",
+  "type": "module",
+  "main": "./js/index.js",
+  "module": "./js/index.js",
+  "exports": {
+    "import": "./js/index.js",
+    "require": "./dist/main.cjs"
+  },
+  "files": [
+    "contexts/**/*.jsonld",
+    "dist/**/*.LICENSE.txt",
+    "dist/**/main.cjs",
+    "js/**/*.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/digitalbazaar/vc-bitstring-status-list-context"
+  },
+  "bugs": {
+    "url": "https://github.com/digitalbazaar/vc-bitstring-status-list-context/issues"
+  },
+  "author": {
+    "name": "Digital Bazaar, Inc.",
+    "email": "support@digitalbazaar.com",
+    "url": "https://digitalbazaar.com/"
+  },
+  "homepage": "https://github.com/digitalbazaar/vc-bitstring-status-list-context#readme",
+  "license": "BSD-3-Clause",
+  "keywords": [
+    "JSON-LD",
+    "JSON-LD context",
+    "Linked Data",
+    "VC",
+    "Verifiable Credentials",
+    "Verifiable Credentials Bitstring Status List",
+    "context"
+  ],
+  "devDependencies": {
+    "chai": "^4.4.1",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.56.0",
+    "eslint-config-digitalbazaar": "^5.0.1",
+    "eslint-plugin-unicorn": "^50.0.1",
+    "karma": "^6.4.2",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^3.2.0",
+    "karma-mocha": "^2.0.1",
+    "karma-mocha-reporter": "^2.2.5",
+    "karma-sourcemap-loader": "^0.4.0",
+    "karma-webpack": "^5.0.0",
+    "mocha": "^10.2.0",
+    "webpack": "^5.90.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "npm run clean && npm run serialize && webpack",
+    "clean": "rm -rf dist/* && rm -rf contexts/*.jsonld",
+    "lint": "eslint --ext .cjs,.js .",
+    "prepare": "npm run build",
+    "serialize": "node bin/serialize.js",
+    "test": "npm run lint && npm run build && npm run test-node && npm run test-karma",
+    "test-karma": "karma start test/karma.conf.cjs",
+    "test-node": "cross-env NODE_ENV=test mocha --preserve-symlinks test/**/*.spec.js test/**/*.spec.cjs"
+  }
+}
