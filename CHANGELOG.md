@@ -1,6 +1,6 @@
 # @digitalbazaar/vc-bitstring-status-list-context ChangeLog
 
-## 1.1.0 - 2025-02-xx
+## 1.1.0 - 2025-02-27
 
 ### Changed
 - Update to latest VC Bitstring Status List context.
